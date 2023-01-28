@@ -25,9 +25,12 @@ function App(text) {
   const toggleHandler = (id) => {
     setTodo(
       todos.map((todo) => {
+        //sravnivajem esli ravno to razbivajem
+        //list i menajem class  complited na protivopoloznij
         return todo.id === id
           ? { ...todo, complieted: !todo.complieted }
           : { ...todo }
+        //sverhu ternarnij operator
       })
     )
   }
@@ -36,7 +39,11 @@ function App(text) {
     <div className="App">
       <h1>This is TODO App</h1>
       <TodoForm addTodo={addButtonHandler} />
-      <TodoList todos={todos} deleteTodo={deleteButtonHandler} toggle={toggleHandler} />
+      <TodoList
+        todos={todos}
+        deleteTodo={deleteButtonHandler}
+        toggle={toggleHandler}
+      />
     </div>
   )
 }

@@ -4,7 +4,11 @@ import styles from '../Todos/todo.module.css'
 function Todo(props) {
   const { key, todo, del, toggle } = props
   return (
-    <div className={styles.todo}>
+    <div
+      className={`${styles.todo} ${
+        todo.complieted ? styles.completedTodo : ''
+      }`}
+    >
       <FaBeer className={styles.todoIcon} />
       <div className={styles.todoText}>{todo.text}</div>
       <FaEdit className={styles.deleteIcon} onClick={() => del(todo.id)} />
