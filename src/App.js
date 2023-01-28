@@ -2,16 +2,24 @@ import './App.css'
 import TodoList from './components/Todos/todoList'
 import TodoForm from './components/Todos/todoForm'
 import { useState } from 'react'
+//dobavlajem unikaljnij id ->
+import { v4 as uuidv4 } from 'uuid'
 
 function App(text) {
   const [todos, setTodo] = useState([])
 
   const addButtonHandler = (text) => {
-    setTodo([...todos, text])
+    const newText = {
+      id: uuidv4(),
+      text: text,
+      complieted: false,
+    }
+    console.log(newText)
+    setTodo([...todos, newText])
   }
 
-  const deleteButtonHandler = (index) => {
-    setTodo(todos.filter((_, idx) => idx !== index))
+  const deleteButtonHandler = (id) => {
+    setTodo(todos.filter((todo) => todo.id !== id))
   }
 
   return (
