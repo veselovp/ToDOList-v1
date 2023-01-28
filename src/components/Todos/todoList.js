@@ -8,7 +8,6 @@ function TodoList(props) {
       {!todos.length && <h2>todoes is empty</h2>}
       {todos.map((todo) => (
         <Todo
-          clasName
           key={todo.id}
           todo={todo}
           del={deleteTodo}

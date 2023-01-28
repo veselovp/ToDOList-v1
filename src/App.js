@@ -1,6 +1,8 @@
 import './App.css'
 import TodoList from './components/Todos/todoList'
 import TodoForm from './components/Todos/todoForm'
+import TodoAction from './components/Todos/todoAction'
+
 import { useState } from 'react'
 //dobavlajem unikaljnij id ->
 import { v4 as uuidv4 } from 'uuid'
@@ -39,6 +41,7 @@ function App(text) {
     <div className="App">
       <h1>This is TODO App</h1>
       <TodoForm addTodo={addButtonHandler} />
+      <TodoAction />
       <TodoList
         todos={todos}
         deleteTodo={deleteButtonHandler}
