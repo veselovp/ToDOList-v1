@@ -1,8 +1,10 @@
 import styles from '../UI/button.module.css'
 
-function Button({ onClick, children, title, disabled }) {
+function Button(props) {
+  const { onClick, children, title, disabled = false } = props
   return (
     <button
+      {...props}
       className={styles.button}
       onClick={onClick}
       children={children}

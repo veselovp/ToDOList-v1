@@ -69,6 +69,12 @@ function App(text) {
         deleteTodo={deleteButtonHandler}
         toggle={toggleHandler}
       />
+      {/* pokazivaju text kogda boljwe 0 todo */}
+      {complietedTodoCount > 0 && (
+        <h2>{`you have complited ${complietedTodoCount} ${
+          complietedTodoCount > 1 ? 'todos' : 'todo'
+        }`}</h2>
+      )}
     </div>
   )
 }
