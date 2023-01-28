@@ -36,12 +36,34 @@ function App(text) {
       })
     )
   }
+  //udalajem vsjo po knopke
+  const deleteAllTodoHandler = () => {
+    setTodo([])
+  }
+  //udalajem vse vipolnenije zadanija
+  //s pomosju filtra ostavlajem vse s classom
+  //completed
+  const deleteAllCompletedHandler = () => {
+    setTodo(todos.filter((todo) => !todo.complieted))
+  }
+
+  const complietedTodoCount = todos.filter((todo) => todo.complieted).length
 
   return (
     <div className="App">
       <h1>This is TODO App</h1>
       <TodoForm addTodo={addButtonHandler} />
-      <TodoAction />
+      {/* tut ja pokazivaju ili skrivaju blok ternarnim operatorom */}
+      {todos.length > 0 ? (
+        <TodoAction
+          complietedTodo={!!complietedTodoCount}
+          deleteAllTodo={deleteAllTodoHandler}
+          deleteAllCompleted={deleteAllCompletedHandler}
+        />
+      ) : (
+        ''
+      )}
+
       <TodoList
         todos={todos}
         deleteTodo={deleteButtonHandler}
